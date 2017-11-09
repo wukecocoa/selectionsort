@@ -1,5 +1,6 @@
 import org.junit.Test;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -20,9 +21,12 @@ public class SelectionSortGenerationTest {
 
     @Test
     public void sort1(){
-        Integer [] arr=SortTestHelper.generateRandomArray(1000000,1,200);
+        Integer [] arr=SortTestHelper.generateRandomArray(10000,1,200);
+
+        System.out.print(SortTestHelper.isSorted(arr));
         SelectionSortGeneration.sort(arr);
         SortTestHelper.printArray(arr);
+        System.out.print(SortTestHelper.isSorted(arr));
     }
     @Test
     public void sort2(){
@@ -44,5 +48,11 @@ public class SelectionSortGenerationTest {
        List<Student> list= Arrays.asList(students);
        SortTestHelper.printCollection(list);
        //list.forEach(System.out::println);
+    }
+
+    @Test
+    public void sort4() throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException {
+        Integer [] arr=SortTestHelper.generateRandomArray(1000,1,200);
+        SortTestHelper.test("SelectionSortGeneration",arr);
     }
 }

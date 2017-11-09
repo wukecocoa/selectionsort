@@ -11,11 +11,19 @@ public class SelectionSortGenerationTest {
 
        SelectionSortGeneration.sort(darr);
 
-        for (int i = 0; i <darr.length ; i++) {
+       SortTestHelper.printArray(darr);
+       /* for (int i = 0; i <darr.length ; i++) {
             System.out.print(darr[i]+" ");
-        }
+        }*/
     }
 
+
+    @Test
+    public void sort1(){
+        Integer [] arr=SortTestHelper.generateRandomArray(1000000,1,200);
+        SelectionSortGeneration.sort(arr);
+        SortTestHelper.printArray(arr);
+    }
     @Test
     public void sort2(){
         Student[] students=new Student[4];
@@ -27,11 +35,14 @@ public class SelectionSortGenerationTest {
 
         SelectionSortGeneration.sort(students);
 
+        SortTestHelper.printArray(students);
+
        // for (int i = 0; i <students.length ; i++) {
        //     System.out.print(students[i]+" ");
        // }
 
        List<Student> list= Arrays.asList(students);
-       list.forEach(System.out::println);
+       SortTestHelper.printCollection(list);
+       //list.forEach(System.out::println);
     }
 }
